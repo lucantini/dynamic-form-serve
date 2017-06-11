@@ -5,8 +5,11 @@
   "main": "build/index.js",
   "scripts": {
     "test": "jest --forceExit",
-    "start": "tsc",
-    "lint": "tslint -c tslint.json -p tsconfig.json"
+    "coverage": "npm test -- --coverage",
+    "clean": "rimraf dist",
+    "start": "npm run clear -- tsc",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "prepush":"npm test -- npm run lint"
   },
   "engines": {
     "node": ">=6"
@@ -24,7 +27,9 @@
   ],
   "license": "ISC",
   "devDependencies": {
+    "husky": "0.13.4",
     "jest": "^20.0.4",
+    "rimraf": "2.6.1",
     "ts-jest": "^20.0.6",
     "tslint": "^5.4.3",
     "typescript": "^2.3.4"
