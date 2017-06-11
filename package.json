@@ -9,7 +9,7 @@
     "clean": "rimraf dist",
     "start": "npm run clear -- tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "prepush": "npm test & npm run lint",
+    "prepush": "npm run lint && npm test",
     "patch": "npm version patch",
     "minor": "npm version minor",
     "major": "npm version major"
