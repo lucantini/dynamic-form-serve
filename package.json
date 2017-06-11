@@ -1,0 +1,32 @@
+{
+  "name": "dynamic-form-server",
+  "version": "0.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "jest --forceExit",
+    "start": "tsc",
+    "lint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "keywords": [
+    "Dynamic",
+    "Form",
+    "Node"
+  ],
+  "contributors": [
+    {
+      "name": "Alan Gomes",
+      "email": "alanhr2@gmail.com"
+    }
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^20.0.4",
+    "ts-jest": "^20.0.6",
+    "tslint": "^5.4.3",
+    "typescript": "^2.3.4"
+  }
+}

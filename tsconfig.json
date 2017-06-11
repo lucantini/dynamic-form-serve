@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "pretty": true,
+        "watch": true,
+        "outDir": "./build",
+        "sourceRoot": "./src"
+    },
+
+    "exclude": [
+        "node_modules",
+        "**/*.test.ts"
+    ]
+}
