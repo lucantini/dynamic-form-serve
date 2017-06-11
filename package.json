@@ -1,6 +1,6 @@
 {
   "name": "dynamic-form-server",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "",
   "main": "build/index.js",
   "scripts": {
@@ -9,7 +9,10 @@
     "clean": "rimraf dist",
     "start": "npm run clear -- tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "prepush": "npm test -- npm run lint"
+    "prepush": "npm test -- npm run lint",
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "major": "npm version major"
   },
   "engines": {
     "node": ">=6"
