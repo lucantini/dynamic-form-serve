@@ -1,4 +1,4 @@
-export default class Teste {
+export class Teste {
     getName = () => {
         return name;
     }

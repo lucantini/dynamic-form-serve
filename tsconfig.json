@@ -8,7 +8,7 @@
         "sourceMap": true,
         "pretty": true,
         "watch": true,
-        "outDir": "./build",
+        "outDir": "./dist",
         "sourceRoot": "./src"
     },
 
