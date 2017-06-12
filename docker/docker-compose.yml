@@ -1,0 +1,16 @@
+version: '2'
+services:
+    mongo.dynamic.form:
+        image: mongo:3
+
+    dynamic.form:
+        image: node:8.1
+        ports:
+            - "3000:3000"
+        volumes:
+            - ../:/dynamic-form
+        working_dir: /dynamic-form
+        links:
+            - mongo.dynamic.form
+        tty: true
+        entrypoint: bash /dynamic-form/docker/init.sh
