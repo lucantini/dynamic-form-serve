@@ -5,10 +5,10 @@ import Field from "./Field";
 import Area from "./Area";
 
 export default class Form extends Model implements Jsonable {
-    
+
     private areas: Array<Area>;
 
-    private fields: Array<Field>; 
+    private fields: Array<Field>;
 
     constructor() {
         super();
@@ -17,23 +17,23 @@ export default class Form extends Model implements Jsonable {
         this.fields = new Array();
     }
     protected attributesToInitialize(): Array<string> {
-        return ['id', 'title'];
+        return ["id", "title"];
     }
 
-    public setId(id: string) : this {
-        return this.setAttribute('id', id);
+    public setId(id: string): this {
+        return this.setAttribute("id", id);
     }
 
-    public setTitle(title: string) : this {
-        return this.setAttribute('title', title);
+    public setTitle(title: string): this {
+        return this.setAttribute("title", title);
     }
 
-    public getId() : string {
-        return this.getAttribute('id');
+    public getId(): string {
+        return this.getAttribute("id");
     }
 
-    public getTitle() : string {
-        return this.getAttribute('title');
+    public getTitle(): string {
+        return this.getAttribute("title");
     }
 
     public newField(callback: any): this {
@@ -45,15 +45,15 @@ export default class Form extends Model implements Jsonable {
 
     public newArea(callback: any): this {
         const area = new Area();
-        this.areas.push(callback(area));        
+        this.areas.push(callback(area));
         return this;
     }
 
     public toJson(): Object {
-        return { 
+        return {
             ...this.getAttributes(),
             fields: JsonHelper.fromList(this.fields),
             areas: JsonHelper.fromList(this.areas)
-        }
+        };
     }
 }
