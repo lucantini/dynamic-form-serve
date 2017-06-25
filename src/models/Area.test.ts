@@ -3,48 +3,48 @@ import Field from "./Field";
 
 describe("Area", () => {
 
-    test("Fill area attributes", () => {
-        
-        let area = new Area();
+  test("Fill area attributes", () => {
 
-        area
-            .setId('abacate')
-            .setTitle('Abacate');
+    const area = new Area();
 
-        expect(area.getAttributes()).toEqual({
-            id : "abacate",
-            title : "Abacate"
-        });
+    area
+      .setId("abacate")
+      .setTitle("Abacate");
 
-        expect(area.getId()).toEqual('abacate');
-        expect(area.getTitle()).toEqual('Abacate');
+    expect(area.getAttributes()).toEqual({
+      id: "abacate",
+      title: "Abacate"
     });
 
-    test("Build json for field", () => {
-        
-        let area = new Area();
-        
-        area
-            .setId('abacate')
-            .setTitle('Abacate')
-            .newField((field: Field) => {
-                
-                field
-                    .setId('field_1')
-                    .setLabel('Field 1');
+    expect(area.getId()).toEqual("abacate");
+    expect(area.getTitle()).toEqual("Abacate");
+  });
 
-                return field;
-            });
+  test("Build json for field", () => {
 
-        expect(area.toJson()).toEqual({
-            id : 'abacate',
-            title : 'Abacate',
-            fields : [
-                {
-                    id : "field_1",
-                    label : "Field 1"
-                }
-            ]
-        });
+    const area = new Area();
+
+    area
+      .setId("abacate")
+      .setTitle("Abacate")
+      .newField((field: Field) => {
+
+        field
+          .setId("field_1")
+          .setLabel("Field 1");
+
+        return field;
+      });
+
+    expect(area.toJson()).toEqual({
+      id: "abacate",
+      title: "Abacate",
+      fields: [
+        {
+          id: "field_1",
+          label: "Field 1"
+        }
+      ]
     });
+  });
 });
