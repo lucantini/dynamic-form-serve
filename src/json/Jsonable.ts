@@ -1,3 +1,3 @@
 export interface Jsonable {
-    toJson() : Object;
+  toJson(): Object;
 }

@@ -3,54 +3,51 @@ import { Model } from "./Model";
 import Field from "./Field";
 
 export default class Area extends Model implements Jsonable {
-    
-    protected fields : Array<Field>;
 
-    constructor() {
-        super();
-        this.fields = new Array();
-    }
+  protected fields: Array<Field>;
 
-    protected attributesToInitialize() : Array<string> {
-        return ['id', 'title'];
-    }
+  constructor() {
+    super();
+    this.fields = new Array();
+  }
 
-    public setId(id : string) : this {
-        return this.setAttribute('id', id);
-    }
+  protected attributesToInitialize(): Array<string> {
+    return ["id", "title"];
+  }
 
-    public getId() : string {
-        return this.getAttribute('id');
-    }
+  public setId(id: string): this {
+    return this.setAttribute("id", id);
+  }
 
-    public setTitle(title : string) : this {
-        return this.setAttribute('title', title);
-    }
+  public getId(): string {
+    return this.getAttribute("id");
+  }
 
-    public getTitle() : string {
-        return this.getAttribute('title');
-    }
+  public setTitle(title: string): this {
+    return this.setAttribute("title", title);
+  }
 
-    public newField(callback: any) : this {
-        let field = new Field();        
-        this.fields.push(callback(field));
+  public getTitle(): string {
+    return this.getAttribute("title");
+  }
 
-        return this;
-    }
+  public newField(callback: any): this {
+    const field = new Field();
+    this.fields.push(callback(field));
 
-    private fieldsToJson() : Array<Object> {
-        return this.fields.map((field : Jsonable) => {
-            return field.toJson();
-        });
-    }
+    return this;
+  }
 
-    public toJson(): Object {
-        let json = Object.assign(
-            {}, 
-            this.getAttributes(),
-            {fields : this.fieldsToJson()}
-        );
+  private fieldsToJson(): Array<Object> {
+    return this.fields.map((field: Jsonable) => {
+      return field.toJson();
+    });
+  }
 
-        return json;
-    }
+  public toJson(): Object {
+    return {
+      ...this.getAttributes(),
+      fields: this.fieldsToJson()
+    };
+  }
 }
