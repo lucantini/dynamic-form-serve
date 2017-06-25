@@ -36,15 +36,11 @@ describe("Area", () => {
         return field;
       });
 
-    expect(area.toJson()).toEqual({
-      id: "abacate",
-      title: "Abacate",
-      fields: [
-        {
-          id: "field_1",
-          label: "Field 1"
-        }
-      ]
-    });
+    const json = area.toJson();
+
+    expect(json).toHaveProperty('id', 'abacate');
+    expect(json).toHaveProperty('title', 'Abacate');
+    expect(json).toHaveProperty('fields');
+    expect(json.fields).toHaveLength(1);
   });
 });

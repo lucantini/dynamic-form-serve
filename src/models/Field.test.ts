@@ -31,9 +31,9 @@ describe("Field", () => {
       .setId("abacate")
       .setLabel("abacate_label");
 
-    expect(field.toJson()).toEqual({
-      id: "abacate",
-      label: "abacate_label"
-    });
+    const json = field.toJson();
+
+    expect(json).toHaveProperty('id', 'abacate');
+    expect(json).toHaveProperty('label', 'abacate_label');
   });
 });
