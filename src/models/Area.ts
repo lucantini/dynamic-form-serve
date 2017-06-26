@@ -1,5 +1,5 @@
 import { Jsonable } from "../json/Jsonable";
-import JsonHelper from "../json/JsonHelper";
+import { fromList } from "../json/JsonHelper";
 import { Model } from "./Model";
 import Field from "./Field";
 
@@ -42,7 +42,7 @@ export default class Area extends Model implements Jsonable {
   public toJson(): Object {
     return {
       ...this.getAttributes(),
-      fields: JsonHelper.fromList(this.fields)
+      fields: fromList(this.fields)
     };
   }
 }
